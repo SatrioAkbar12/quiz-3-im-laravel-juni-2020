@@ -12,14 +12,25 @@
 
     @if(count($artikel) != 0)
         @foreach ($artikel as $a)
-            <div class="list-group">
-                <a href="/artikel/{{$a->id_artikel}}" class="list-group-item list-group-item-action">
-                    <h5>{{$a->judul}}</h5>
-                    <div class="d-flex justify-content-end">
-                        <strong>{{$a->created_at}}</strong>
-                    </div>
-                </a>
-            </div>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h4>{{$a->judul}}</h4>
+                    <h6 class="text-right">{{$a->created_at}}</h6>
+                </li>
+                <li class="list-group-item">
+                    <form action="/artikel/{{$a->id_artikel}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <div class="d-flex justify-content-start">
+                            <a href="/artikel/{{$a->id_artikel}}" class="btn btn-info">Lihat Selengkapnya</a>
+                            &nbsp;&nbsp;
+                            <a href="/artikel/{{$a->id_artikel}}/edit" class="btn btn-warning">Edit</a>
+                            &nbsp;&nbsp;
+                            <input type="submit" class="btn btn-danger" value="Hapus">
+                        </div>
+                    </form>
+                </li>
+            </ul>
         @endforeach
     @else
         <h4>Belum ada artikel yang tersimpan</h4>
