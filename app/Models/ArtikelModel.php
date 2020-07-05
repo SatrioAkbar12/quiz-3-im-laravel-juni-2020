@@ -14,7 +14,7 @@ class ArtikelModel{
 
     public static function get_with_idArtikel($id){
         $table = DB::table('artikel');
-        $data = $table->where('id_artikel', $id);
+        $data = $table->where('id_artikel', $id)->get();
 
         return $data;
     }
@@ -38,15 +38,15 @@ class ArtikelModel{
 
     public static function update_artikel($data){
         $slug = str_replace(" ", "-", strtolower($data->judul));
-        $time = date('Y/m/d H:i:s', time());
+        $timestamp = date('Y/m/d H:i:s', time());
 
         $table = DB::table('artikel');
-        $update = $table->where('id_artikel', $data->id_artikel)->update([
+        $update = $table->where('id_artikel', $data->id)->update([
             'judul' => $data->judul,
             'isi' => $data->isi,
             'slug' => $slug,
             'tag' => $data->tag,
-            'updated_at' => $time
+            'updated_at' => $timestamp
         ]);
 
         return $update;
