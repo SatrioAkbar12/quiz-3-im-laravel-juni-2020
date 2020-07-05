@@ -21,17 +21,16 @@ class ArtikelModel{
 
     public static function insert_artikel($data){
         $slug = str_replace(" ", "-", strtolower($data->judul));
-        $time = date('Y/m/d H:i:s', time());
+        $timestamp = date('Y-m-d H:i:s', time());
 
         $table = DB::table('artikel');
         $insert = $table->insert([
-            'id_akun' => '',
             'judul' => $data->judul,
             'isi' => $data->isi,
             'slug' => $slug,
             'tag' => $data->tag,
-            'created_at' => $time,
-            'updated_at' => $time
+            'created_at' => $timestamp,
+            'updated_at' => $timestamp
         ]);
 
         return $insert;
