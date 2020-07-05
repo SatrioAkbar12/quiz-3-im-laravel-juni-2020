@@ -17,6 +17,7 @@
                     <div class="col-2">Slug</div>
                     <div class="col-10">: {{$a->slug}}</div>
                 </div>
+                &nbsp;
                 <div class="row">
                     <div class="col-2">Isi artikel</div>
                     <div class="col-10">:</div>
@@ -30,6 +31,7 @@
                         </ul>
                     </div>
                 </div>
+                &nbsp;
                 <div class="row">
                    <div class="col-1">Tags</div>
                    <div class="col-11">:</div>
@@ -44,6 +46,15 @@
                        </div>
                     </div>
                 </div>
+                &nbsp;
+                <div class="row">
+                    <div class="col-2">Dibuat</div>
+                    <div class="col-10">: {{$a->created_at}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-2">Diperbarui</div>
+                    <div class="col-10">: {{$a->updated_at}}</div>
+                </div>
             @endforeach
         </li>
     </ul>
@@ -53,15 +64,4 @@
     <div class="d-flex justify-content-end">
         <a href="/artikel" class="btn btn-info">Kembali</a>
     </div>
-    {{-- <form action="/artikel/{{$a->id_artikel}}" method="POST">
-        @csrf
-        @method('DELETE')
-        <div class="d-flex justify-content-end">
-            <a href="/artikel/{{$a->id_artikel}}/edit" class="btn btn-warning">Edit</a>
-            &nbsp;&nbsp;
-            <input type="submit" class="btn btn-danger" value="Hapus">
-        </div>
-    </form> --}}
-
-    {{-- @endforeach --}}
 @endsection
