@@ -8,15 +8,20 @@
     </div>
 
     <a href="/artikel/create" class="btn btn-primary">Buat Artikelmu</a>
+    <p>&nbsp;</p>
 
     @if(count($artikel) != 0)
         @foreach ($artikel as $a)
-            <ul class="list-group">
-                <li class="list-group-item">{{$a->judul}}</li>
-            </ul>
+            <div class="list-group">
+                <a href="/artikel/{{$a->id_artikel}}" class="list-group-item list-group-item-action">
+                    <h5>{{$a->judul}}</h5>
+                    <div class="d-flex justify-content-end">
+                        <strong>{{$a->created_at}}</strong>
+                    </div>
+                </a>
+            </div>
         @endforeach
     @else
-        <p></p>
         <h4>Belum ada artikel yang tersimpan</h4>
     @endif
 @endsection
