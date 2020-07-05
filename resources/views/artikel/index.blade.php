@@ -31,6 +31,7 @@
                     </form>
                 </li>
             </ul>
+            &nbsp;
         @endforeach
     @else
         <h4>Belum ada artikel yang tersimpan</h4>
