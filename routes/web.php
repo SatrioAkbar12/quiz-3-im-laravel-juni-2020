@@ -32,7 +32,7 @@ Route::get('/', function() {
 Route::get('/artikel', 'ArtikelController@index');
 Route::get('/artikel/create', 'ArtikelController@create');
 Route::post('/artikel', 'ArtikelController@store');
-Route::get('/artikel/{id}', 'ArtikelController@detail');
+Route::get('/artikel/{id}', 'ArtikelController@detail')->name('artikel_detail');
 Route::get('/artikel/{id}/edit', 'ArtikelController@edit');
 Route::put('/artikel/{id}', 'ArtikelController@update');
 Route::delete('/artikel/{id}', 'ArtikelController@delete');
