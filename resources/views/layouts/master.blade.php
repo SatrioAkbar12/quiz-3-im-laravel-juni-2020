@@ -390,12 +390,12 @@
   <script src="{{ asset('sbadmin2/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="{{ asset('sbadmin/js/sb-admin-2.min.js') }}"></script>
+  <script src="{{ asset('sbadmin2/js/sb-admin-2.min.js') }}"></script>
 
   <!-- script tambahan sweet alert, bukan dari bawaan sb-admin-2 -->
   @stack('scripts')
 
-  <script src="{{ asset('sbadmin/js/swal.min.js') }}"></script>
+  <script src="{{ asset('sbadmin2/js/swal.min.js') }}"></script>
 
 </body>
 
