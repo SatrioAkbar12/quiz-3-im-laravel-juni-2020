@@ -26,7 +26,13 @@ class ArtikelController extends Controller
     public function detail($id){
         $artikel = ArtikelModel::get_with_idArtikel($id);
 
-        return view('artikel/detail_artikel', ['artikel' => $artikel]);
+        foreach($artikel as $a)
+            $tag = explode(",", $a->tag);
+
+
+        // dd($tag);
+
+        return view('artikel/detail_artikel', ['artikel' => $artikel,'tag' => $tag]);
     }
 
     public function edit($id){
@@ -38,7 +44,7 @@ class ArtikelController extends Controller
     public function update(Request $request){
         $update = ArtikelModel::update_artikel($request);
 
-        return redirect(route('artikel_detail', ['id' => $request->id_artikel]));
+        return redirect('/artikel');
     }
 
     public function delete($id){
